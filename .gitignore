@@ -1,9 +1,10 @@
-/com/
-bin/
+/bin/com
 *.class
 *.apk
 bin/
 gen/
-.settings/
-.classpath
 proguard/
+/target/ 
+.classpath
+.project
+.settings

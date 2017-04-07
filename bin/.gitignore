@@ -1,0 +1,10 @@
+/bin/com
+*.class
+*.apk
+bin/
+gen/
+proguard/
+/target/ 
+.classpath
+.project
+.settings
