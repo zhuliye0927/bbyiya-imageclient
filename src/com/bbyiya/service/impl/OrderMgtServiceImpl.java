@@ -44,7 +44,6 @@ public class OrderMgtServiceImpl implements IOrderMgtService {
 		JSONObject jsonobject=JSONObject.fromObject(result);
 		JSONObject baseobject=jsonobject.getJSONObject("BaseModle");
 		List<JSONObject> orderlist=(List<JSONObject>)baseobject.get("list");
-		//List<OOrderproducts> orderlist=productDao.QueryBySearchFilter(param);
 		
 		int initpro=5;//初始进度
 		progressbar.setValue(initpro);
