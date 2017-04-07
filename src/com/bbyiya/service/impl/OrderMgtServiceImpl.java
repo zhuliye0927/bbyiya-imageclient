@@ -35,7 +35,6 @@ public class OrderMgtServiceImpl implements IOrderMgtService {
 		    }
 		});
 		
-		
 		JSONObject object = JSONObject.fromObject(param,jsonConfig);
 		
 		String urlString = "http://mpic.bbyiya.com/pbs/order/getOrderList";
