@@ -84,7 +84,6 @@ public class OrderMgtServiceImpl implements IOrderMgtService {
 			
 			
 			int type=Integer.parseInt(StyleId)%2;//判断产品类型
-			//List<OOrderproductdetails> detallist=detailsDao.QueryByOrderProductId(orderproductid);
 			//改用调接口的模式
 			String urlString2 = "http://mpic.bbyiya.com/order/getOrderProductdetailsByOrderProductId";
 			String dataString2 = "orderProductId="+orderproductid+"&ticket="+ticket ;
