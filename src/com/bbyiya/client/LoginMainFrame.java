@@ -125,14 +125,15 @@ public class LoginMainFrame extends JFrame {
 //		}
 		if(jsonobject!=null&&jsonobject.has("Statu")&&jsonobject.get("Statu")!=null&&jsonobject.get("Statu").equals("1")){
 			
-			String identity=jsonobject.get("identity").toString();
+			
+			JSONObject baseobject=jsonobject.getJSONObject("BaseModle");		
+			String ticket=baseobject.get("ticket").toString();
+			String identity=baseobject.get("identity").toString();
 			//如果不是生产端的用户则不能进入
 			if(ValidateUtils.isIdentity(Long.parseLong(identity), UserIdentityEnums.pbs)==false){
 				JOptionPane.showMessageDialog(null,"该账户不是生产端的用户，不能登录！");
 				return;
 			}
-			JSONObject baseobject=jsonobject.getJSONObject("BaseModle");		
-			String ticket=baseobject.get("ticket").toString();
 			initMainPanel amf= new initMainPanel(ticket);
 			amf.setVisible(true);
 			this.dispose();  //用于登陆后关闭。
