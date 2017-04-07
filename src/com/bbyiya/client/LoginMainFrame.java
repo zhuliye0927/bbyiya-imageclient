@@ -14,9 +14,11 @@ import javax.swing.*;
 
 import net.sf.json.JSONObject;
 
+import com.bbyiya.enums.UserIdentityEnums;
 import com.bbyiya.service.IOrderMgtService;
 import com.bbyiya.service.impl.OrderMgtServiceImpl;
 import com.bbyiya.utlis.HttpRequestHelper;
+import com.bbyiya.utlis.ValidateUtils;
 import com.bbyiya.vo.ReturnModel;
 public class LoginMainFrame extends JFrame {
 
@@ -122,9 +124,14 @@ public class LoginMainFrame extends JFrame {
 //			message=jsonobject.get("StatusReson").toString();
 //		}
 		if(jsonobject!=null&&jsonobject.has("Statu")&&jsonobject.get("Statu")!=null&&jsonobject.get("Statu").equals("1")){
-			//String ticket=jsonobject.get("BaseModle.ticket").toString();
-			JSONObject baseobject=jsonobject.getJSONObject("BaseModle");
 			
+			String identity=jsonobject.get("identity").toString();
+			//如果不是生产端的用户则不能进入
+			if(ValidateUtils.isIdentity(Long.parseLong(identity), UserIdentityEnums.pbs)==false){
+				JOptionPane.showMessageDialog(null,"该账户不是生产端的用户，不能登录！");
+				return;
+			}
+			JSONObject baseobject=jsonobject.getJSONObject("BaseModle");		
 			String ticket=baseobject.get("ticket").toString();
 			initMainPanel amf= new initMainPanel(ticket);
 			amf.setVisible(true);
