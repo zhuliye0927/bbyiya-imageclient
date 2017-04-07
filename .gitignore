@@ -1,0 +1,9 @@
+/com/
+bin/
+*.class
+*.apk
+bin/
+gen/
+.settings/
+.classpath
+proguard/
