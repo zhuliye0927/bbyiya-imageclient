@@ -120,12 +120,8 @@ public class LoginMainFrame extends JFrame {
 		
 		JSONObject jsonobject=JSONObject.fromObject(result);
 		String message="密码错误或用户名未注册！";
-//		if(jsonobject!=null&&jsonobject.has("StatusReson")&&jsonobject.get("StatusReson")!=null){
-//			message=jsonobject.get("StatusReson").toString();
-//		}
+
 		if(jsonobject!=null&&jsonobject.has("Statu")&&jsonobject.get("Statu")!=null&&jsonobject.get("Statu").equals("1")){
-			
-			
 			JSONObject baseobject=jsonobject.getJSONObject("BaseModle");		
 			String ticket=baseobject.get("ticket").toString();
 			String identity=baseobject.get("identity").toString();
